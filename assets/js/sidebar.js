@@ -1,3 +1,9 @@
+/*
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
 (function($) {
 
 	var	$window = $(window),
@@ -68,70 +74,72 @@
 			$sidebar_inner = $sidebar.children('.inner');
 
 		// Inactive by default on <= large.
-			// breakpoints.on('<=large', function() {
-			// 	$sidebar.addClass('inactive');
-			// });
+			breakpoints.on('<=large', function() {
+				$sidebar.addClass('inactive');
+			});
 
-			// breakpoints.on('>large', function() {
-			// 	$sidebar.removeClass('inactive');
-			// });
+			breakpoints.on('>large', function() {
+				$sidebar.removeClass('inactive');
+			});
 
-		// // Hack: Workaround for Chrome/Android scrollbar position bug.
-		// 	if (browser.os == 'android'
-		// 	&&	browser.name == 'chrome')
-		// 		$('<style>#sidebar .inner::-webkit-scrollbar { display: none; }</style>')
-		// 			.appendTo($head);
+		// Hack: Workaround for Chrome/Android scrollbar position bug.
+			if (browser.os == 'android'
+			&&	browser.name == 'chrome')
+				$('<style>#sidebar .inner::-webkit-scrollbar { display: none; }</style>')
+					.appendTo($head);
 
-		// // Toggle.
-		// 	$('<a href="#sidebar" class="toggle">Toggle</a>')
-		// 		.appendTo($sidebar)
-		// 		.on('click', function(event) {
+		// Toggle.
+			$('<a href="#sidebar" class="toggle">Toggle</a>')
+				.appendTo($sidebar)
+				.on('click', function(event) {
 
-		// 			// Prevent default.
-		// 				event.preventDefault();
-		// 				event.stopPropagation();
+					// Prevent default.
+						event.preventDefault();
+						event.stopPropagation();
 
-		// 			// Toggle.
-		// 				$sidebar.toggleClass('inactive');
+					// Toggle.
+						$sidebar.toggleClass('inactive');
 
-		// 		});
+				});
 
 		// Events.
 
-			// // Link clicks.
-			// 	$sidebar.on('click', 'a', function(event) {
+			// Link clicks.
+				$sidebar.on('click', 'a', function(event) {
 
-			// 		// >large? Bail.
-			// 			if (breakpoints.active('>large'))
-			// 				return;
+					// >large? Bail.
+						if (breakpoints.active('>large'))
+							return;
 
-			// 		// Vars.
-			// 			var $a = $(this),
-			// 				href = $a.attr('href'),
-			// 				target = $a.attr('target');
+					// Vars.
+						var $a = $(this),
+							href = $a.attr('href'),
+							target = $a.attr('target');
 
-			// 		// Prevent default.
-			// 			event.preventDefault();
-			// 			event.stopPropagation();
+					// Prevent default.
+						event.preventDefault();
+						event.stopPropagation();
 
-			// 		// Check URL.
-			// 			if (!href || href == '#' || href == '')
-			// 				return;
+					// Check URL.
+						if (!href || href == '#' || href == '')
+							return;
 
-			// 		// Hide sidebar.
-			// 			$sidebar.addClass('inactive');
+					// Hide sidebar.
+						$sidebar.addClass('inactive');
 
-			// 		// Redirect to href.
-			// 			setTimeout(function() {
+					// Redirect to href.
+						setTimeout(function() {
 
-			// 				if (target == '_blank')
-			// 					window.open(href);
-			// 				else
-			// 					window.location.href = href;
+							if (target == '_blank')
+								// window.open(href);
+								parent.gantiHalaman(href);
+							else
+								// window.location.href = href;
+								parent.gantiHalaman(href);
 
-			// 			}, 500);
+						}, 500);
 
-			// 	});
+				});
 
 			// Prevent certain events inside the panel from bubbling.
 				$sidebar.on('click touchend touchstart touchmove', function(event) {

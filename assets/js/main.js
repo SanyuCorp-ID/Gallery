@@ -131,9 +131,11 @@
 						setTimeout(function() {
 
 							if (target == '_blank')
-								window.open(href);
+								// window.open(href);
+								gantiHalaman(href);
 							else
-								window.location.href = href;
+								// window.location.href = href;
+								gantiHalaman(href);
 
 						}, 500);
 
